@@ -8,6 +8,7 @@
 
 class Editor {
 private:
+    // del pointer
    std::vector<Document> documents;
 
 public:

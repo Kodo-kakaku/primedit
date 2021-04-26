@@ -8,6 +8,7 @@
 class Document
 {
 private:
+    // del pointer
     std::vector<Primitive> primitives;
 
 public:
