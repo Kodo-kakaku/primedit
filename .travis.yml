@@ -1,0 +1,24 @@
+language: cpp
+compiler: gcc
+
+os: linux
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-7
+
+script:
+  - export CC=gcc-7
+  - export CXX=g++-7
+  - cmake --version
+  - cmake CMakeLists.txt
+  - cmake --build . --target package
+deploy:
+  provider: script
+  skip_cleanup: true
+  script:
+    - curl -T primedit-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb -ukodo-kakaku:$BINTRAY_API_KEY  "https://api.bintray.com/content/otushw/prinus/primedit/$TRAVIS_BUILD_NUMBER/primedit-0.0.$TRAVIS_BUILD_NUMBER-Linux.deb;deb_distribution=trusty;deb_component=main;deb_architecture=amd64;publish=1"
+  on:
+    all_branches: true
