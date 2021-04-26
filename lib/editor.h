@@ -8,7 +8,7 @@
 
 class Editor {
 private:
-    [[maybe_unused]] std::vector<Document> *documents;
+   std::vector<Document> documents;
 
 public:
     Editor() {}

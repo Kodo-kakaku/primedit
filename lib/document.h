@@ -8,7 +8,7 @@
 class Document
 {
 private:
-    [[maybe_unused]] std::vector<Primitive> *primitives;
+    std::vector<Primitive> primitives;
 
 public:
     Document() {}
